@@ -82,6 +82,11 @@ public class Leitor extends javax.swing.JInternalFrame {
             }
         });
         leitorTable.getTableHeader().setReorderingAllowed(false);
+        leitorTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                leitorTableMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(leitorTable);
 
         jLabel1.setText("Nome:");
@@ -236,6 +241,10 @@ public class Leitor extends javax.swing.JInternalFrame {
     private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
         hide();
     }//GEN-LAST:event_voltarActionPerformed
+
+    private void leitorTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_leitorTableMouseClicked
+        JOptionPane.showMessageDialog(null, "Adicionar Função para Editar Componentes!");
+    }//GEN-LAST:event_leitorTableMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

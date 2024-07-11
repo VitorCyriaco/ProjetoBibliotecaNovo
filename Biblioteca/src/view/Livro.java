@@ -416,7 +416,7 @@ public class Livro extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_cadastrar1ActionPerformed
 
     private void livroTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_livroTableMouseClicked
-        JOptionPane.showMessageDialog(null, "Clicou!");
+        JOptionPane.showMessageDialog(null, "Adicionar Função para Editar Componentes!");
     }//GEN-LAST:event_livroTableMouseClicked
 
 
