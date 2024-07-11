@@ -6,8 +6,8 @@ import javax.swing.table.AbstractTableModel;
 
 public class LivroModel extends AbstractTableModel {
 
-    private List<LivroCad> dados = new ArrayList<>();
-    private String[] colunas = {"Titulo", "Autor", "ISBN", "Data da Publicacao"};
+    public List<LivroCad> dados = new ArrayList<>();
+    private final String[] colunas = {"Titulo", "Autor", "ISBN", "Data da Publicacao"};
 
     @Override
     public String getColumnName(int column) {
@@ -38,9 +38,22 @@ public class LivroModel extends AbstractTableModel {
         }
         return null;
     }
+    public LivroCad getLivro(int linha){
+        return dados.get(linha);
+    }
+    public void getData(int linha){
+        while (linha < dados.size()){
+            dados.get(linha).getTitulo();
+            dados.get(linha).getAutor();
+        }
+    }
 
     public void addRow(LivroCad dados) {
         this.dados.add(dados);
+        this.fireTableDataChanged();
+    }
+    public void removeRow(LivroCad dados){
+        this.dados.remove(dados);
         this.fireTableDataChanged();
     }
 

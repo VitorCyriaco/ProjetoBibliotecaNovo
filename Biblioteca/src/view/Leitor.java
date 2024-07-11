@@ -6,21 +6,22 @@ import model.LeitorModel;
 
 public class Leitor extends javax.swing.JInternalFrame {
 
+    private LeitorCad selected = null;
     LeitorModel leitorModel = new LeitorModel();
     private static Leitor leitores;
-
+    
     public static Leitor getInstancia() {
         if (leitores == null) {
             leitores = new Leitor();
         }
         return leitores;
     }
-
+    
     public Leitor() {
         initComponents();
         leitorTable.setModel(leitorModel);
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -41,6 +42,7 @@ public class Leitor extends javax.swing.JInternalFrame {
         jButton3 = new javax.swing.JButton();
         inputPesquisa = new javax.swing.JTextField();
         iconCadastro = new javax.swing.JLabel();
+        remover = new javax.swing.JButton();
 
         setTitle("Cadastro de Leitor");
 
@@ -115,6 +117,13 @@ public class Leitor extends javax.swing.JInternalFrame {
 
         iconCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/iconCadastro.png"))); // NOI18N
 
+        remover.setText("Remover");
+        remover.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removerActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -141,8 +150,10 @@ public class Leitor extends javax.swing.JInternalFrame {
                                     .addComponent(jLabel3)
                                     .addComponent(inputEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(224, 224, 224)
-                        .addComponent(cadastrar)))
+                        .addGap(135, 135, 135)
+                        .addComponent(cadastrar)
+                        .addGap(101, 101, 101)
+                        .addComponent(remover)))
                 .addGap(50, 50, 50)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -179,7 +190,9 @@ public class Leitor extends javax.swing.JInternalFrame {
                             .addComponent(inputCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(inputEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cadastrar))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cadastrar)
+                            .addComponent(remover)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(30, 30, 30)
                         .addComponent(iconCadastro)
@@ -217,7 +230,7 @@ public class Leitor extends javax.swing.JInternalFrame {
         String cpfInput = inputCpf.getText().trim();
         String emailInput = inputEmail.getText().trim();
         String telefoneInput = inputTelefone.getText().trim();
-
+        
         if (nomeInput.isEmpty() || cpfInput.isEmpty() || emailInput.isEmpty() || telefoneInput.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
         } else {
@@ -243,8 +256,22 @@ public class Leitor extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_voltarActionPerformed
 
     private void leitorTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_leitorTableMouseClicked
-        JOptionPane.showMessageDialog(null, "Adicionar Função para Editar Componentes!");
+        LeitorCad lt = leitorModel.getLivro(leitorTable.getSelectedRow());
+        inputNome.setText(lt.getNome());
+        inputCpf.setText(lt.getCpf());
+        inputEmail.setText(lt.getEmail());
+        inputTelefone.setText(lt.getTelefone());
+        
+        selected = lt;
     }//GEN-LAST:event_leitorTableMouseClicked
+
+    private void removerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerActionPerformed
+        leitorModel.removeRow(selected);
+        inputNome.setText(null);
+        inputCpf.setText(null);
+        inputEmail.setText(null);
+        inputTelefone.setText(null);
+    }//GEN-LAST:event_removerActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -263,6 +290,7 @@ public class Leitor extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable leitorTable;
+    private javax.swing.JButton remover;
     private javax.swing.JButton voltar;
     // End of variables declaration//GEN-END:variables
 }

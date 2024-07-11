@@ -5,12 +5,14 @@ import model.LivroCad;
 import model.LivroModel;
 
 public class Livro extends javax.swing.JInternalFrame {
-    
+
+    private LivroCad selected = null;
     private static Livro livros;
-    public static Livro getInstancia(){
-        if(livros == null){
-        livros = new Livro();
-    }
+
+    public static Livro getInstancia() {
+        if (livros == null) {
+            livros = new Livro();
+        }
         return livros;
     }
     LivroModel livroModel = new LivroModel();
@@ -48,6 +50,7 @@ public class Livro extends javax.swing.JInternalFrame {
         jButton2 = new javax.swing.JButton();
         cadastrar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+        remover = new javax.swing.JButton();
         jInternalFrame1 = new javax.swing.JInternalFrame();
         jPanel2 = new javax.swing.JPanel();
         voltar1 = new javax.swing.JButton();
@@ -129,6 +132,13 @@ public class Livro extends javax.swing.JInternalFrame {
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/logoCastor .png"))); // NOI18N
 
+        remover.setText("Remover");
+        remover.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removerActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -156,9 +166,11 @@ public class Livro extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(220, 220, 220)
+                        .addGap(131, 131, 131)
                         .addComponent(cadastrar)
-                        .addGap(240, 240, 240)
+                        .addGap(97, 97, 97)
+                        .addComponent(remover)
+                        .addGap(157, 157, 157)
                         .addComponent(inputPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton2))
@@ -200,7 +212,8 @@ public class Livro extends javax.swing.JInternalFrame {
                         .addGap(10, 10, 10)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(inputPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2))))
+                            .addComponent(jButton2)))
+                    .addComponent(remover))
                 .addGap(12, 12, 12)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -417,8 +430,22 @@ public class Livro extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_cadastrar1ActionPerformed
 
     private void livroTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_livroTableMouseClicked
-        JOptionPane.showMessageDialog(null, "Adicionar Função para Editar Componentes!");
+        LivroCad lv = livroModel.getLivro(livroTable.getSelectedRow());
+        inputTitulo.setText(lv.getTitulo());
+        inputAutor.setText(lv.getAutor());
+        inputIsbn.setText(lv.getIsbn());
+        inputPubli.setText(lv.getPubli());
+
+        selected = lv;
     }//GEN-LAST:event_livroTableMouseClicked
+
+    private void removerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerActionPerformed
+        livroModel.removeRow(selected);
+        inputTitulo.setText(null);
+        inputAutor.setText(null);
+        inputIsbn.setText(null);
+        inputPubli.setText(null);
+    }//GEN-LAST:event_removerActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -453,6 +480,7 @@ public class Livro extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable livroTable;
     private javax.swing.JTable livroTable1;
+    private javax.swing.JButton remover;
     private javax.swing.JButton voltar;
     private javax.swing.JButton voltar1;
     // End of variables declaration//GEN-END:variables

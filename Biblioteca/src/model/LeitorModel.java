@@ -39,8 +39,17 @@ public class LeitorModel extends AbstractTableModel {
         return null;
     }
 
+    public LeitorCad getLivro(int linha) {
+        return dados.get(linha);
+    }
+
     public void addRow(LeitorCad dados) {
         this.dados.add(dados);
+        this.fireTableDataChanged();
+    }
+
+    public void removeRow(LeitorCad dados) {
+        this.dados.remove(dados);
         this.fireTableDataChanged();
     }
 
