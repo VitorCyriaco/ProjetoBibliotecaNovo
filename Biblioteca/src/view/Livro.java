@@ -95,6 +95,11 @@ public class Livro extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
+        livroTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                livroTableMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(livroTable);
 
         inputPesquisa.setText("Pesquisar");
@@ -409,6 +414,10 @@ public class Livro extends javax.swing.JInternalFrame {
     private void cadastrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrar1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cadastrar1ActionPerformed
+
+    private void livroTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_livroTableMouseClicked
+        JOptionPane.showMessageDialog(null, "Clicou!");
+    }//GEN-LAST:event_livroTableMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
