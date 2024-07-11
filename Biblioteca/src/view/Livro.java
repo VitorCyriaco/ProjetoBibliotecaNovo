@@ -5,7 +5,14 @@ import model.LivroCad;
 import model.LivroModel;
 
 public class Livro extends javax.swing.JInternalFrame {
-
+    
+    private static Livro livros;
+    public static Livro getInstancia(){
+        if(livros == null){
+        livros = new Livro();
+    }
+        return livros;
+    }
     LivroModel livroModel = new LivroModel();
 
     /**
@@ -59,6 +66,7 @@ public class Livro extends javax.swing.JInternalFrame {
         cadastrar1 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
 
+        setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         setTitle("Cadastro Livros");
         setVisible(false);
 
@@ -157,7 +165,7 @@ public class Livro extends javax.swing.JInternalFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
+                .addContainerGap(22, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel3)
@@ -369,7 +377,7 @@ public class Livro extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_inputPesquisaMouseClicked
 
     private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
-        
+        hide();
     }//GEN-LAST:event_voltarActionPerformed
 
     private void cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarActionPerformed

@@ -1,18 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
- */
 package view;
 
-/**
- *
- * @author vitor
- */
 public class Emprestimo extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form Emprestimo
-     */
+    private static Emprestimo emprestimo;
+
+    public static Emprestimo getInstancia() {
+        if (emprestimo == null) {
+            emprestimo = new Emprestimo();
+        }
+        return emprestimo;
+    }
+
     public Emprestimo() {
         initComponents();
     }
@@ -89,7 +87,7 @@ public class Emprestimo extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
-        dispose();
+        hide();
     }//GEN-LAST:event_voltarActionPerformed
 
 

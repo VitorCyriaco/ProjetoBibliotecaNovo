@@ -4,17 +4,22 @@
  */
 package view;
 
+import util.GerenteDeTelas;
+
 /**
  *
  * @author vitor
  */
 public class Home extends javax.swing.JFrame {
 
+    GerenteDeTelas gerenteDeTelas;
+
     /**
      * Creates new form Home
      */
     public Home() {
         initComponents();
+        this.gerenteDeTelas = new GerenteDeTelas(homePanel);
     }
 
     /**
@@ -39,6 +44,7 @@ public class Home extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Biblioteca do Castor");
+        setExtendedState(6);
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(230, 235, 238));
@@ -97,11 +103,7 @@ public class Home extends javax.swing.JFrame {
         homePanelLayout.setHorizontalGroup(
             homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(homePanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(logout)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(homePanelLayout.createSequentialGroup()
-                .addGroup(homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(homePanelLayout.createSequentialGroup()
                         .addGap(120, 120, 120)
                         .addComponent(jLabel5)
@@ -112,38 +114,46 @@ public class Home extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homePanelLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel9))))
-                    .addGroup(homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(homePanelLayout.createSequentialGroup()
-                            .addGap(357, 357, 357)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, homePanelLayout.createSequentialGroup()
-                            .addGap(102, 102, 102)
-                            .addComponent(livros))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 171, Short.MAX_VALUE)
+                    .addGroup(homePanelLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, homePanelLayout.createSequentialGroup()
+                        .addGap(102, 102, 102)
+                        .addComponent(livros)))
+                .addGap(171, 171, 171)
                 .addGroup(homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(leitores)
                     .addComponent(jLabel8))
                 .addGap(81, 81, 81))
+            .addGroup(homePanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(logout)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        homePanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {emprestimos, jLabel4, leitores, livros});
+
         homePanelLayout.setVerticalGroup(
             homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homePanelLayout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(jLabel4)
+            .addGroup(homePanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(136, 136, 136)
                 .addGroup(homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(emprestimos)
                     .addComponent(livros)
                     .addComponent(leitores))
-                .addGap(4, 4, 4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(jLabel5)
                     .addComponent(jLabel8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
+                .addGap(139, 139, 139)
                 .addComponent(logout)
                 .addContainerGap())
         );
+
+        homePanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {emprestimos, jLabel4, leitores, livros});
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -172,21 +182,24 @@ public class Home extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void livrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_livrosMouseClicked
-        Livro livro = new Livro();
+        gerenteDeTelas.abrirTelas(Livro.getInstancia());
+        /*Livro livro = new Livro();
         homePanel.add(livro);
-        livro.setVisible(true);
+        livro.setVisible(true);*/
     }//GEN-LAST:event_livrosMouseClicked
 
     private void emprestimosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_emprestimosMouseClicked
-        Emprestimo emprestimo = new Emprestimo();
+        gerenteDeTelas.abrirTelas(Emprestimo.getInstancia());
+        /*Emprestimo emprestimo = new Emprestimo();
         homePanel.add(emprestimo);
-        emprestimo.setVisible(true);
+        emprestimo.setVisible(true);*/
     }//GEN-LAST:event_emprestimosMouseClicked
 
     private void leitoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_leitoresMouseClicked
-        Leitor leitor = new Leitor();
+        gerenteDeTelas.abrirTelas(Leitor.getInstancia());
+        /*Leitor leitor = new Leitor();
         homePanel.add(leitor);
-        leitor.setVisible(true);
+        leitor.setVisible(true);*/
     }//GEN-LAST:event_leitoresMouseClicked
 
     private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed

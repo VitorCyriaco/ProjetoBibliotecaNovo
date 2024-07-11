@@ -1,13 +1,21 @@
 package view;
+
 import model.LeitorCad;
 import javax.swing.JOptionPane;
 import model.LeitorModel;
 
 public class Leitor extends javax.swing.JInternalFrame {
-     LeitorModel leitorModel = new LeitorModel();
-    /**
-     * Creates new form Leitor
-     */
+
+    LeitorModel leitorModel = new LeitorModel();
+    private static Leitor leitores;
+
+    public static Leitor getInstancia() {
+        if (leitores == null) {
+            leitores = new Leitor();
+        }
+        return leitores;
+    }
+
     public Leitor() {
         initComponents();
         leitorTable.setModel(leitorModel);
@@ -204,10 +212,10 @@ public class Leitor extends javax.swing.JInternalFrame {
         String cpfInput = inputCpf.getText().trim();
         String emailInput = inputEmail.getText().trim();
         String telefoneInput = inputTelefone.getText().trim();
-        
-        if(nomeInput.isEmpty() || cpfInput.isEmpty() || emailInput.isEmpty() || telefoneInput.isEmpty()){
+
+        if (nomeInput.isEmpty() || cpfInput.isEmpty() || emailInput.isEmpty() || telefoneInput.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
-        }else {
+        } else {
             LeitorCad leitor = new LeitorCad(nomeInput, cpfInput, emailInput, telefoneInput);
             leitorModel.addRow(leitor);
             inputNome.setText(null);
@@ -226,7 +234,7 @@ public class Leitor extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_inputPesquisaMouseClicked
 
     private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
-        dispose();
+        hide();
     }//GEN-LAST:event_voltarActionPerformed
 
 
