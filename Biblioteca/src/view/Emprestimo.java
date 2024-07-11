@@ -1,10 +1,14 @@
 package view;
 
+import model.EmprestimoModel;
+
 public class Emprestimo extends javax.swing.JInternalFrame {
 
+    EmprestimoModel emprestimoModel = new EmprestimoModel();
     private static Emprestimo emprestimo;
 
     public static Emprestimo getInstancia() {
+
         if (emprestimo == null) {
             emprestimo = new Emprestimo();
         }
@@ -13,6 +17,7 @@ public class Emprestimo extends javax.swing.JInternalFrame {
 
     public Emprestimo() {
         initComponents();
+        emprestimoTable.setModel(emprestimoModel);
     }
 
     /**
@@ -35,15 +40,20 @@ public class Emprestimo extends javax.swing.JInternalFrame {
 
         emprestimoTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Title 1", "Title 2", "Title 3", "Title 4", "null"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(emprestimoTable);
 
         voltar.setText("Voltar");
