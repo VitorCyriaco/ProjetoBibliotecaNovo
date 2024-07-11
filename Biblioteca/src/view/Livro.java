@@ -95,6 +95,7 @@ public class Livro extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
+        livroTable.getTableHeader().setReorderingAllowed(false);
         livroTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 livroTableMouseClicked(evt);
