@@ -33,6 +33,7 @@ public class Login extends javax.swing.JFrame {
         textPass = new javax.swing.JLabel();
         buttonEntrar = new javax.swing.JButton();
         iconCastor = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Biblioteca");
@@ -46,15 +47,16 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        inputPass.setText("jPasswordField1");
-
         textLogin.setText("Login:");
 
         textPass.setText("Senha:");
 
         buttonEntrar.setText("Entrar");
 
-        iconCastor.setText("iconCastor");
+        iconCastor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/logoCastor .png"))); // NOI18N
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
+        jLabel1.setText("Biblioteca do Castor");
 
         javax.swing.GroupLayout panelLoginLayout = new javax.swing.GroupLayout(panelLogin);
         panelLogin.setLayout(panelLoginLayout);
@@ -73,16 +75,21 @@ public class Login extends javax.swing.JFrame {
                             .addComponent(inputLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(textLogin)))
                     .addGroup(panelLoginLayout.createSequentialGroup()
-                        .addGap(136, 136, 136)
+                        .addGap(38, 38, 38)
+                        .addComponent(jLabel1))
+                    .addGroup(panelLoginLayout.createSequentialGroup()
+                        .addGap(104, 104, 104)
                         .addComponent(iconCastor)))
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
         panelLoginLayout.setVerticalGroup(
             panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLoginLayout.createSequentialGroup()
-                .addGap(90, 90, 90)
+                .addGap(20, 20, 20)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(iconCastor)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addComponent(textLogin)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(inputLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -153,6 +160,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel iconCastor;
     private javax.swing.JTextField inputLogin;
     private javax.swing.JPasswordField inputPass;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel panelLogin;
     private javax.swing.JLabel textLogin;
     private javax.swing.JLabel textPass;
