@@ -103,32 +103,31 @@ public class Home extends javax.swing.JFrame {
         homePanelLayout.setHorizontalGroup(
             homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(homePanelLayout.createSequentialGroup()
-                .addGroup(homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(homePanelLayout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addComponent(jLabel5)
-                        .addGroup(homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(homePanelLayout.createSequentialGroup()
-                                .addGap(172, 172, 172)
-                                .addComponent(emprestimos))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homePanelLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel9))))
-                    .addGroup(homePanelLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, homePanelLayout.createSequentialGroup()
-                        .addGap(102, 102, 102)
-                        .addComponent(livros)))
-                .addGap(171, 171, 171)
-                .addGroup(homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(leitores)
-                    .addComponent(jLabel8))
-                .addGap(81, 81, 81))
-            .addGroup(homePanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(logout)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homePanelLayout.createSequentialGroup()
+                .addGroup(homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(homePanelLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(homePanelLayout.createSequentialGroup()
+                        .addGap(114, 114, 114)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel9))
+                    .addGroup(homePanelLayout.createSequentialGroup()
+                        .addGap(93, 93, 93)
+                        .addComponent(livros)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 271, Short.MAX_VALUE)
+                        .addComponent(emprestimos)))
+                .addGap(236, 236, 236)
+                .addGroup(homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(leitores)
+                    .addGroup(homePanelLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel8)))
+                .addGap(117, 117, 117))
         );
 
         homePanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {emprestimos, jLabel4, leitores, livros});
@@ -138,19 +137,25 @@ public class Home extends javax.swing.JFrame {
             .addGroup(homePanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(136, 136, 136)
                 .addGroup(homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(emprestimos)
-                    .addComponent(livros)
-                    .addComponent(leitores))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel8))
-                .addGap(139, 139, 139)
-                .addComponent(logout)
-                .addContainerGap())
+                    .addGroup(homePanelLayout.createSequentialGroup()
+                        .addGap(161, 161, 161)
+                        .addGroup(homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(livros)
+                            .addComponent(emprestimos))
+                        .addGap(18, 18, 18)
+                        .addGroup(homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel5))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(logout)
+                        .addContainerGap())
+                    .addGroup(homePanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 172, Short.MAX_VALUE)
+                        .addComponent(leitores)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel8)
+                        .addGap(327, 327, 327))))
         );
 
         homePanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {emprestimos, jLabel4, leitores, livros});
@@ -181,19 +186,11 @@ public class Home extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void livrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_livrosMouseClicked
-        gerenteDeTelas.abrirTelas(Livro.getInstancia());
-        /*Livro livro = new Livro();
-        homePanel.add(livro);
-        livro.setVisible(true);*/
-    }//GEN-LAST:event_livrosMouseClicked
-
-    private void emprestimosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_emprestimosMouseClicked
-        gerenteDeTelas.abrirTelas(Emprestimo.getInstancia());
-        /*Emprestimo emprestimo = new Emprestimo();
-        homePanel.add(emprestimo);
-        emprestimo.setVisible(true);*/
-    }//GEN-LAST:event_emprestimosMouseClicked
+    private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
+        Login login = new Login();
+        login.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_logoutActionPerformed
 
     private void leitoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_leitoresMouseClicked
         gerenteDeTelas.abrirTelas(Leitor.getInstancia());
@@ -202,46 +199,24 @@ public class Home extends javax.swing.JFrame {
         leitor.setVisible(true);*/
     }//GEN-LAST:event_leitoresMouseClicked
 
-    private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
-        Login login = new Login();
-        login.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_logoutActionPerformed
+    private void emprestimosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_emprestimosMouseClicked
+        gerenteDeTelas.abrirTelas(Emprestimo.getInstancia());
+        /*Emprestimo emprestimo = new Emprestimo();
+        homePanel.add(emprestimo);
+        emprestimo.setVisible(true);*/
+    }//GEN-LAST:event_emprestimosMouseClicked
+
+    private void livrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_livrosMouseClicked
+        gerenteDeTelas.abrirTelas(Livro.getInstancia());
+        /*Livro livro = new Livro();
+        homePanel.add(livro);
+        livro.setVisible(true);*/
+    }//GEN-LAST:event_livrosMouseClicked
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Home().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel emprestimos;
