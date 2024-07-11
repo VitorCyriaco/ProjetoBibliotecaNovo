@@ -1,20 +1,24 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package view;
 
-/**
- *
- * @author vitor
- */
+import javax.swing.JOptionPane;
+
 public class Login extends javax.swing.JFrame {
+
+    private String log, pass;
 
     /**
      * Creates new form Login
      */
     public Login() {
         initComponents();
+    }
+
+    private boolean validarUsuario(String logar, String senha) {
+        if (logar.equals("teste") && senha.equals("1234")) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -28,10 +32,10 @@ public class Login extends javax.swing.JFrame {
 
         panelLogin = new javax.swing.JPanel();
         inputLogin = new javax.swing.JTextField();
-        inputPass = new javax.swing.JPasswordField();
+        inputSenha = new javax.swing.JPasswordField();
         textLogin = new javax.swing.JLabel();
         textPass = new javax.swing.JLabel();
-        buttonEntrar = new javax.swing.JButton();
+        login = new javax.swing.JButton();
         iconCastor = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -51,7 +55,12 @@ public class Login extends javax.swing.JFrame {
 
         textPass.setText("Senha:");
 
-        buttonEntrar.setText("Entrar");
+        login.setText("Entrar");
+        login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginActionPerformed(evt);
+            }
+        });
 
         iconCastor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/logoCastor .png"))); // NOI18N
 
@@ -66,12 +75,12 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelLoginLayout.createSequentialGroup()
                         .addGap(116, 116, 116)
-                        .addComponent(buttonEntrar))
+                        .addComponent(login))
                     .addGroup(panelLoginLayout.createSequentialGroup()
                         .addGap(53, 53, 53)
                         .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(textPass)
-                            .addComponent(inputPass, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(inputSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(inputLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(textLogin)))
                     .addGroup(panelLoginLayout.createSequentialGroup()
@@ -96,9 +105,9 @@ public class Login extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addComponent(textPass)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(inputPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(inputSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
-                .addComponent(buttonEntrar)
+                .addComponent(login)
                 .addGap(23, 23, 23))
         );
 
@@ -114,11 +123,31 @@ public class Login extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void inputLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputLoginActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_inputLoginActionPerformed
+
+    private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
+        inputLogin.setText("teste");
+        inputSenha.setText("1234");
+        this.log = inputLogin.getText().trim();
+        this.pass = inputSenha.getText().trim();
+
+        boolean validarUsu = validarUsuario(log, pass);
+
+        if (validarUsu) {
+            Home home = new Home();
+            home.setVisible(true);
+            dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "Usuario ou Senha Incorreto!");
+            inputLogin.setText(null);
+            inputSenha.setText(null);
+        }
+    }//GEN-LAST:event_loginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -156,11 +185,11 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonEntrar;
     private javax.swing.JLabel iconCastor;
     private javax.swing.JTextField inputLogin;
-    private javax.swing.JPasswordField inputPass;
+    private javax.swing.JPasswordField inputSenha;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton login;
     private javax.swing.JPanel panelLogin;
     private javax.swing.JLabel textLogin;
     private javax.swing.JLabel textPass;
